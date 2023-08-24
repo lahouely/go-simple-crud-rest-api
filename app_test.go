@@ -137,7 +137,7 @@ func TestUpdateProduct(t *testing.T) {
 	request, _ = http.NewRequest("PUT", "/product/"+strconv.Itoa(int(id)), bytes.NewBuffer(product))
 	request.Header.Set("Content-Type", "application/json")
 	response = sendRequest(request)
-	checkStatusCode(t, http.StatusCreated, response.Code)
+	checkStatusCode(t, http.StatusOK, response.Code)
 
 	var m map[string]interface{}
 	json.Unmarshal(response.Body.Bytes(), &m)
